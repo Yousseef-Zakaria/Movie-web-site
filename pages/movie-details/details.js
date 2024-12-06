@@ -20,8 +20,9 @@ async function getMovieDetails(){
             <div class="right description w-50 d-flex flex-column gap-4">
             <h1 class="name  fw-bold text-wrap flex-wrap fs-1">${arr.title}</h1>
             <h1 class="name  fw-bold text-wrap flex-wrap fs-1">original title : ${arr.original_title}</h1>
-            <h1 class="name  fw-bold fs-4">popularity : ${arr.popularity} <i class="fa-solid fa-star"></i></h1>
+            <h1 class="name  fw-bold fs-4">popularity : ${arr.vote_average * 10}% <i class="fa-solid fa-star"></i></h1>
             <h4 class="name  text-wrap fs-5">${arr.overview}</h4>
+            <a class="button-35" href="${arr.homepage}" target="blank" role="button">whatch now     <i class="fa-regular fa-lg fa-circle-play"></i> </a>
             </div>
         </div>`
         document.getElementById("home").appendChild(movie)

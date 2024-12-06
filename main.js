@@ -19,7 +19,7 @@ let arr = []
 let endOfOrder = 6;
 let startOfOrder = 0;
 let intervalOfOrder = 0;
-arrowRight.addEventListener("click",function () {
+arrowRight.addEventListener("click", ()=> {
     const oldItems = document.querySelectorAll(".appear");    
     oldItems.forEach(item =>{
         item.classList.add("fade-out");
@@ -71,6 +71,7 @@ async function getTrendingMovies()
         let product = document.createElement("div")
         product.innerHTML= `   
         <a href="/pages/movie-details/details.html"><img src="${img_URL+arr.results[i].poster_path}" class="card-img-top " style="width:16%;" alt=""></a>
+        <span class=" rounded-5">${Math.round(arr.results[i].vote_average*10)}%</span>
         `;
         product.classList.add("appear")
         productsContainer.appendChild(product);

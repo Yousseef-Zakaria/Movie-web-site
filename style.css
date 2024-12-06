@@ -47,6 +47,7 @@ header nav a:hover{
 }
 .appear{
     width: 16% !important;
+
 }
 .appear img{
     animation: appear linear;
@@ -54,6 +55,10 @@ header nav a:hover{
     animation-range: entry 1% cover 30%;
     border-radius: 1em !important;
     width: 100% !important;
+    transition: 0.3s;
+}
+.appear a img:hover{
+    transform: scale(1.05);
 }
 /*____________________________________________________________*/
 #products-container{
@@ -62,8 +67,12 @@ header nav a:hover{
 #products-container span{
     color: #FFF4B7;
 }
-.arrows i{
+#arrow-right , #arrow-left{
     cursor: pointer;
+    transition: 0.3s;
+}
+#arrow-right:hover , #arrow-left:hover{
+    transform: scale(1.3);
 }
 .fade-out {
     animation: fadeOut 0.5s forwards; /* مدة الأنيميشن 0.5 ثانية */
@@ -92,4 +101,15 @@ header nav a:hover{
         opacity: 0;
         transform: translateX(600px);
     }
+}
+.rounded-5{
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    transform: translateY(-20px);
+    background-color: #000B58;
 }
