@@ -84,3 +84,20 @@ header nav a:hover{
     justify-content: center;
     height: 92.4vh;
 }
+.rounded-5 i{
+    transform: rotate(-90deg);
+}
+.rounded-5{
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    cursor: pointer;
+    z-index: 5000;
+    right: 7%;
+    top: 10%;
+    background-color: #ffffff;
+}

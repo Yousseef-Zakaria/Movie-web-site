@@ -35,4 +35,7 @@ async function getMovieDetails(){
 
 getMovieDetails()
 
-
+const goBack = document.getElementsByClassName("rounded-5")[0];
+goBack.addEventListener("click", () =>{
+    window.history.back()
+})

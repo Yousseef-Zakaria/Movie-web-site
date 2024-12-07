@@ -6,9 +6,11 @@ const arrowLeft = document.getElementById("arrow-left");
 // const arrowLeftInTopRated = document.getElementById("arrow-left-top-rated");
 searchButton.addEventListener('click',async () => {
     const inputValue = searchInput.value;
+    localStorage.setItem("searchQuery",`${inputValue}`);
         // window.location.href = "./pages/search/search.html"
 });
-const img_URL = `https://image.tmdb.org/t/p/w500`
+const img_URL = `https://image.tmdb.org/t/p/w500`;
+
 const options = {
         method: 'GET',
         headers: {
@@ -106,7 +108,7 @@ function displayMovies(arr = [] , container = "" , startIndex , endIndex , oldIt
         item.innerHTML = `<a href="/pages/movie-details/details.html">
         <img src="${img_URL+movie.poster_path}" class="card-img-top " style="width:16%;" alt="">
         </a>
-        <span class=" rounded-5">${Math.round(movie.vote_average*10)}%</span>`;
+        <span class=" rounded-5">${(movie.vote_average).toFixed(1)}</span>`;
         father.appendChild(item);
         item.classList.add(`appear`);
         item.classList.add(`${oldItemsClass}`); // top-rated-movie , when I want to delete this moveis this is a token for me to delete it

@@ -68,14 +68,19 @@ header nav a:hover{
     color: #FFF4B7;
 }
 
+#arrow-right-top-rated , #arrow-left-top-rated{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#arrow-right-top-rated:hover , #arrow-left-top-rated:hover{
+    transform: scale(1.3);
+}
 #arrow-right , #arrow-left{
     cursor: pointer;
     transition: 0.3s;
 }
-#arrow-right-top-rated:disabled , #arrow-left-top-rated:disabled{
-    cursor: not-allowed;
-    transition: 0.3s;
-}
+
 #arrow-right:hover , #arrow-left:hover{
     transform: scale(1.3);
 }
