@@ -1,7 +1,9 @@
 const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const arrowRight = document.getElementById("arrow-right");
+// const arrowRightInTopRated = document.getElementById("arrow-right-top-rated");
 const arrowLeft = document.getElementById("arrow-left");
+// const arrowLeftInTopRated = document.getElementById("arrow-left-top-rated");
 searchButton.addEventListener('click',async () => {
     const inputValue = searchInput.value;
         // window.location.href = "./pages/search/search.html"
@@ -20,7 +22,7 @@ let endOfOrder = 6;
 let startOfOrder = 0;
 let intervalOfOrder = 0;
 arrowRight.addEventListener("click", ()=> {
-    const oldItems = document.querySelectorAll(".appear");    
+    const oldItems = document.querySelectorAll(".trending-movie");    
     oldItems.forEach(item =>{
         item.classList.add("fade-out");
         item.addEventListener("animationend",()=>{
@@ -35,12 +37,12 @@ arrowRight.addEventListener("click", ()=> {
     startOfOrder+=6;
     intervalOfOrder -= 6;
     setTimeout(() => {
-        getTrendingMovies();
+        displayMovies(arr.results , "products-container" ,startOfOrder , endOfOrder,"trending-movie");
     }, 500);
 
 })
 arrowLeft.addEventListener("click",()=>{
-    const oldItems =  document.querySelectorAll(".appear");
+    const oldItems =  document.querySelectorAll(".trending-movie");
     oldItems.forEach(item =>{
         item.classList.add("fade-out-delete");
         item.addEventListener("animationend",()=>{
@@ -55,10 +57,10 @@ arrowLeft.addEventListener("click",()=>{
     startOfOrder -= 6;
     endOfOrder -= 6;
     setTimeout(()=>{
-        getTrendingMovies();
+        displayMovies(arr.results , "products-container" ,startOfOrder , endOfOrder,"trending-movie");
     },500)
 })
-const productsContainer = document.getElementById("products-container")
+
 async function getTrendingMovies()
 {    
     if (arr.length === 0) {
@@ -67,25 +69,92 @@ async function getTrendingMovies()
         arr = await response.json();        
         intervalOfOrder = arr.results.length; // تعيين العدد الإجمالي للعناصر
     }
-    for (let i = startOfOrder; i < endOfOrder ; i++) {        
-        let product = document.createElement("div")
-        product.innerHTML= `   
-        <a href="/pages/movie-details/details.html"><img src="${img_URL+arr.results[i].poster_path}" class="card-img-top " style="width:16%;" alt=""></a>
-        <span class=" rounded-5">${Math.round(arr.results[i].vote_average*10)}%</span>
-        `;
-        product.classList.add("appear")
-        productsContainer.appendChild(product);
-        product.addEventListener("click",()=>{
-            getDetails(arr.results[i]);
-        })
-    }
+    displayMovies(arr.results , "products-container",0,6,"trending-movie");
 }
 getTrendingMovies();
 // show details 
 let getDetails = (movie) =>{
     localStorage.setItem("selectedMovieForDetails" , String(movie.id))
 }
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!trending end here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let topRated = [];
+
+async function getTopRatedMovies ()
+{
+    if (topRated.length === 0)
+    {
+        let response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',options);
+        topRated = await response.json();
+        topRated = topRated.results;
+    }
+    displayMovies(topRated , "top-rated-container",0,6,"top-rated-movie");
+
+}
+getTopRatedMovies();
 
 
+let currentPage = 0; // الصفحة الحالية
+const itemsPerPage = 6; // عدد العناصر لكل صفحة
 
+function displayMovies(arr = [] , container = "" , startIndex , endIndex , oldItemsClass ) {
+    let currentItems = arr.slice(startIndex, endIndex);
+    
+    const father = document.getElementById(`${container}`);
+    father.innerHTML = "";
+    currentItems.forEach(movie => {
+        const item = document.createElement("div")
+        item.innerHTML = `<a href="/pages/movie-details/details.html">
+        <img src="${img_URL+movie.poster_path}" class="card-img-top " style="width:16%;" alt="">
+        </a>
+        <span class=" rounded-5">${Math.round(movie.vote_average*10)}%</span>`;
+        father.appendChild(item);
+        item.classList.add(`appear`);
+        item.classList.add(`${oldItemsClass}`); // top-rated-movie , when I want to delete this moveis this is a token for me to delete it
+        item.addEventListener("click" , ()=>{
+            getDetails(movie);
+        })
+    })
+}
+let start = 0;
+let end = 6;
 
+document.getElementById("arrow-right-top-rated").addEventListener("click" , ()=>{
+    const oldItems = document.querySelectorAll(".top-rated-movie");    
+    oldItems.forEach(item =>{
+        item.classList.add("fade-out");
+        item.addEventListener("animationend",()=>{
+            item.remove();
+        })
+    })
+
+    start += 6;
+    end += 6;    
+    setTimeout(()=>{
+        displayMovies(topRated , "top-rated-container" , start , end, "top-rated-movie");
+    },500)
+    if (end >= 30) {
+        start = 0;
+        end = 6;
+    }
+})
+document.getElementById("arrow-left-top-rated").addEventListener("click" , ()=>{
+    const oldItems = document.querySelectorAll(".top-rated-movie");    
+    oldItems.forEach(item =>{
+        item.classList.add("fade-out-delete");
+        item.addEventListener("animationend",()=>{
+            item.remove();
+        })
+    })
+
+    if (start <= 0) {
+        start = 24;
+        end = 30;
+    }
+    start -= 6;
+    end -= 6;
+    console.log(start , end);
+    
+    setTimeout(()=>{
+        displayMovies(topRated , "top-rated-container" , start , end , "top-rated-movie");
+    },500)
+})

@@ -1,6 +1,7 @@
 body{
     background-color: #000B58;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: scroll;
 }
 header{
     background-color: #1F509A;
@@ -47,7 +48,6 @@ header nav a:hover{
 }
 .appear{
     width: 16% !important;
-
 }
 .appear img{
     animation: appear linear;
@@ -67,8 +67,13 @@ header nav a:hover{
 #products-container span{
     color: #FFF4B7;
 }
+
 #arrow-right , #arrow-left{
     cursor: pointer;
+    transition: 0.3s;
+}
+#arrow-right-top-rated:disabled , #arrow-left-top-rated:disabled{
+    cursor: not-allowed;
     transition: 0.3s;
 }
 #arrow-right:hover , #arrow-left:hover{
@@ -112,4 +117,14 @@ header nav a:hover{
     position: absolute;
     transform: translateY(-20px);
     background-color: #000B58;
+}
+
+#top-rated-container{
+    margin-top: 2rem;
+    /* overflow: scroll; */
+    width: 90% !important;
+}
+
+span {
+    color: #FFF4B7 !important;
 }
