@@ -160,3 +160,69 @@ document.getElementById("arrow-left-top-rated").addEventListener("click" , ()=>{
         displayMovies(topRated , "top-rated-container" , start , end , "top-rated-movie");
     },500)
 })
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! get watch soon !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let upComingMovies = [];
+let dates = {};
+async function getUpComingMovies(){
+    let response = await fetch("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",options);
+    upComingMovies = await response.json();
+    dates = upComingMovies.dates
+    upComingMovies = await upComingMovies.results;  
+    showInSlider(upComingMovies)
+    // displayOneMovie(upComingMovies[10]) // that's will change
+    document.getElementById("Comming-soon").innerHTML = `Comming soon [ ${dates.minimum} ] to [ ${dates.maximum} ]`
+    
+}
+getUpComingMovies()
+
+// function  displayOneMovie (movie = {}){
+//     const leftPart = document.getElementsByClassName("left-part-in-comming-soon")[0];
+//     leftPart.innerHTML = `<img src="${img_URL+movie.poster_path}" class="w-100 rounded-4" alt="">`;
+//     const rightPart = document.getElementsByClassName("right-part-in-comming-soon")[0];
+//     rightPart.innerHTML = `<h1 class="name  fw-bold text-wrap flex-wrap fs-4">${movie.title}</h1>
+//     <h5 class="name  text-wrap fs-5">${movie.overview}</h5>`;
+//     rightPart.style.backgroundImage = `url("${img_URL+movie.backdrop_path}")`;
+//     rightPart.style.backgroundRepeat= "no-repeat" ;
+//     rightPart.style.backgroundAttachment = "fixed" ;
+//     rightPart.style.backgroundSize = "cover" ;
+// }
+
+// !!!!!!!!!!!!!!!!!!!! swiper !!!!!!!!!!!!!!!!!!!!!
+const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+    
+        // If we need pagination
+        pagination: {
+        el: '.swiper-pagination',
+        },
+    
+        // Navigation arrows
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+    
+        // And if we need scrollbar
+        scrollbar: {
+        el: '.swiper-scrollbar',
+        },
+    });
+    function showInSlider(arr = [])
+    {
+        const swiperContainer = document.getElementsByClassName("swiper-wrapper")[0];
+        arr.forEach(movie =>{
+            let swiperItem = document.createElement("div");
+            swiperItem.classList.add("swiper-slide");
+            swiperItem.innerHTML = `<img class="poster" src="${img_URL+movie.poster_path}" alt="">
+                        <img class="bg" src="${img_URL+movie.backdrop_path}" alt="">
+                        <div class="title ms-2">
+                            <h3 class="fs-1">${movie.title}</h3>
+                            <span class="fs-6">
+                                ${movie.overview}
+                            </span>
+                        </div>`;
+            swiperContainer.appendChild(swiperItem)
+        })
+    }

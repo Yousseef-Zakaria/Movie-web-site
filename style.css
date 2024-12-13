@@ -46,6 +46,11 @@ header nav a:hover{
         scale: 1;
     }
 }
+.animation-appear{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 1% cover 30%;
+}
 .appear{
     width: 16% !important;
 }
@@ -132,4 +137,77 @@ header nav a:hover{
 
 span {
     color: #FFF4B7 !important;
+}
+.ion-slider .left img{
+    border-radius: 0 !important;
+    border-top-left-radius: 2em !important;
+    border-bottom-left-radius: 2em !important;
+}
+.ion-slider .right{
+    background-color: rgba(0, 0, 0, 0.7); /* اللون الأسود مع الشفافية */
+    background-blend-mode: darken;
+    color: white;
+    border-top-right-radius: 2em !important;
+    border-bottom-right-radius: 2em !important;
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.view-off-slider{
+    animation: fadeOut 1s forwards;
+}
+.view-enter-slider{
+    animation: fadeIn 1s forwards;
+}
+.fa-circle-arrow-right, .fa-circle-arrow-left{
+    cursor: pointer;
+}
+.swiper{
+    width: 100% !important;
+}
+.swiper-slide img {
+    width: 80%;
+}
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.swiper-slide .poster{
+    width: 25%;
+    position: absolute;
+    left: 15%;
+    z-index: 100;
+    border-radius: 0.7rem;
+}
+.swiper-slide .bg{
+    border-radius: 0.7rem;
+
+    filter: brightness(0.2);
+}
+.swiper-slide div h3{
+    color: white;
+}
+.swiper-slide div{
+    position: absolute;
+    width: 40%;
+    left: 40%;
+}
+.swiper-slide span{
+    color: white !important;
 }
