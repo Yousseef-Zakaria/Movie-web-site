@@ -16,11 +16,41 @@ header h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
 }
-@media only screen and (max-width: 680px) {
-    nav {
-        width: 100% !important;
+@media only screen and (max-width: 800px) {
+    header{
+        padding: 1.5rem !important;
     }
     .hide{
+        display: none;
+    }
+    .welcome-page .big-text{
+        font-size: 1.5rem !important;
+        margin: 1em !important;
+        padding: 0 !important;
+        width: 90% !important;
+        animation: none !important;
+        white-space: wrap !important;
+        border: none !important;
+    }
+    .welcome-page .small-text{
+        font-size: 1rem !important;
+        margin: 1em !important;
+        padding: 0 !important;
+        padding-left: 0.5em !important;
+    }
+    .welcome-page{
+        justify-content: start !important;
+    }
+    .appear{
+        width: 30% !important;
+    }
+    .trending-movie{
+        width: 30% !important;
+    }
+}
+@media only screen and (min-width: 800px) {
+    
+    .hide-large{
         display: none;
     }
 }
@@ -35,13 +65,7 @@ header nav a{
 header nav a:hover{
     border-bottom: #D4EBF8 0.1em solid;
 }
-.home aside span{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    font-weight: 300;
-    color: #FFF4B7;
-    letter-spacing: 0.1rem;
-}
+
 .welcome-page{
     height: 95%;
     background-image: linear-gradient(to right, black, rgba(0, 0, 0, 0.099)) , 
@@ -52,10 +76,10 @@ header nav a:hover{
 }
 @keyframes typing {
     from {
-      width: 0;
+        width: 0;
     }
     to {
-      width: 70%;
+        width: 70%;
     }
   }
 .welcome-page .big-text{
@@ -100,7 +124,7 @@ header nav a:hover{
     animation-range: entry 1% cover 30%;
 }
 .appear{
-    width: 16% !important;
+    width: 16% ;
 }
 .appear img{
     animation: appear linear;

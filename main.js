@@ -175,17 +175,6 @@ async function getUpComingMovies(){
 }
 getUpComingMovies()
 
-// function  displayOneMovie (movie = {}){
-//     const leftPart = document.getElementsByClassName("left-part-in-comming-soon")[0];
-//     leftPart.innerHTML = `<img src="${img_URL+movie.poster_path}" class="w-100 rounded-4" alt="">`;
-//     const rightPart = document.getElementsByClassName("right-part-in-comming-soon")[0];
-//     rightPart.innerHTML = `<h1 class="name  fw-bold text-wrap flex-wrap fs-4">${movie.title}</h1>
-//     <h5 class="name  text-wrap fs-5">${movie.overview}</h5>`;
-//     rightPart.style.backgroundImage = `url("${img_URL+movie.backdrop_path}")`;
-//     rightPart.style.backgroundRepeat= "no-repeat" ;
-//     rightPart.style.backgroundAttachment = "fixed" ;
-//     rightPart.style.backgroundSize = "cover" ;
-// }
 
 // !!!!!!!!!!!!!!!!!!!! swiper !!!!!!!!!!!!!!!!!!!!!
 const swiper = new Swiper('.swiper', {
