@@ -1,0 +1,79 @@
+body{
+    background-color: #08041e;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: scroll;
+}
+html , body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+header{
+    background-color: #08041e;
+}
+header h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+@media only screen and (max-width: 680px) {
+    nav {
+        width: 100% !important;
+    }
+    .hide{
+        display: none;
+    }
+}
+header nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    border: 0.1em transparent solid;
+    transition: 0.3s;
+    border-radius: 0.1em;
+}
+header nav a:hover{
+    border-bottom: #D4EBF8 0.1em solid;
+}
+.rounded-5{
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    cursor: pointer;
+    z-index: 5000;
+    left: 7%;
+    top: 10%;
+    background-color: #ffffff;
+}
+.list-container{
+    width: 85%;
+}
+.bg-circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.bg-circle-remove{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    background-color: red;
+    color: white;
+}
+.bg-circle-remove:hover{
+    background-color: rgb(144, 0, 0);
+}
