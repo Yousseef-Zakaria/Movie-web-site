@@ -47,6 +47,21 @@ header h1{
     .trending-movie{
         width: 30% !important;
     }
+    .buttons-container{
+        width: 100% !important;
+    }
+    .buttons-container button{
+        width: 100% !important;
+    }
+    .animation-appear{
+        width: 100% !important;
+    }
+    .title h3{
+        font-size: 1rem !important;
+    }
+    .title span{
+        font-size: 0.6rem !important;
+    }
 }
 @media only screen and (min-width: 800px) {
     

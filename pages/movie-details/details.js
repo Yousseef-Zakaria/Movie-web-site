@@ -25,9 +25,9 @@ async function getMovieDetails(){
                 <h1 class="name  fw-bold text-wrap flex-wrap fs-1">original title : ${arr.original_title}</h1>
                 <h1 class="name  fw-bold fs-4">Rating : ${arr.vote_average * 10} <i class="fa-solid fa-star"></i></h1>
                 <h4 class="name  text-wrap fs-5">${arr.overview}</h4>
-            <div class="d-flex w-75 gap-5 align-items-center">
+            <div class="d-flex w-100 flex-wrap justify-content-center gap-3 buttons-container align-items-center">
                 <a class="button-35 w-50" href="${arr.homepage}" target="blank" role="button">whatch now     <i class="fa-regular fa-lg fa-circle-play"></i> </a>
-                <button class="button-61 w-50" role="button">Add to whatch list</button>
+                <button class="button-61 " role="button">Add to whatch list</button>
             </div>
             </div>
         </div>`
