@@ -8,22 +8,41 @@
     <title>watch list</title>
 </head>
 <body>
-    <header class=" d-flex justify-content-center">
-        <nav style="width: 85%;" class="d-flex align-items-center justify-content-between ">
-            <h1>
-                MOVIE
-            </h1>
-            <div class="links gap-5 d-flex">    
-                <a href="">Home</a>
-                <a href="">Categories</a>
-                <a href="./pages/whatch-list/whatch-list.html">Watch list</a>
-                <a href="./pages/log in/index.html">Log in</a>
+    <header class=" d-flex p-2 w-100 justify-content-between align-items-center">
+        <h1 class=" w-25">
+            MOVIE
+        </h1>
+        <nav  class=" hide w-50">
+            <div class="d-flex w-100 justify-content-between align-items-center">
+                <div class="links gap-3 d-flex hide">    
+                    <a href="../../index.html" class="hide">Home</a>
+                    <a class="hide" href="../whatch-list/whatch-list.html">Watch list</a>
+                    <a class="hide" href="../log in/index.html">Log in</a>
+                </div>
+                <div class="input hide">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
+                        <a href="/pages/search/search.html" class="btn btn-outline-primary" id="search-button" type="button">Search</a>
+                    </form>
+                </div>
             </div>
-            <div class="input hide">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
-                    <a href="/pages/search/search.html" class="btn btn-outline-primary" id="search-button" type="button">Search</a>
-                </form>
+        </nav>
+        <nav>
+            <div class="dropdown hide-large">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../../index.html">Home page</a></li>
+                        <li><a class="dropdown-item" href="../whatch-list/whatch-list.html">Watch list</a></li>
+                        <li><a class="dropdown-item" href="../log in/index.html">Log in</a></li>
+                        <li><div class="dropdown-item">
+                            <form class="d-flex flex-column" role="search">
+                                <input class="form-control me-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
+                                <a href="/pages/search/search.html" class="btn btn-outline-primary" id="search-button" type="button">Search</a>
+                            </form>
+                        </div></li>
+                    </ul>
             </div>
         </nav>
     </header>

@@ -10,7 +10,7 @@ main{
         width: 32%;
     }
     header{
-        background-color: #1F509A;
+        background-color: #08041e;
     }
     header h1{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -31,11 +31,23 @@ main{
         section{
         width: 100% !important;
         }
+        .hide{
+            display: none;
+        }
+        header{
+            padding: 1.5rem !important;
+        }
+    }
+    @media only screen and (min-width: 800px) {
+    
+        .hide-large{
+            display: none;
+        }
     }
     .continue
     {
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        background-color: #F9A03D;
+        background-color: rgb(13, 13, 57);
     }
     .continue:hover{
         background-color: #ff9419;

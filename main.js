@@ -1,14 +1,24 @@
-const searchButton = document.getElementById('search-button');
-const searchInput = document.getElementById('search-input');
-const arrowRight = document.getElementById("arrow-right");
-// const arrowRightInTopRated = document.getElementById("arrow-right-top-rated");
+const searchButton = document.getElementsByClassName('search-button');
+const searchInput = document.getElementsByClassName('search-input')
+const arrowRight = document.getElementById("arrow-right")
+const arrowRightInTopRated = document.getElementById("arrow-right-top-rated");
 const arrowLeft = document.getElementById("arrow-left");
-// const arrowLeftInTopRated = document.getElementById("arrow-left-top-rated");
-searchButton.addEventListener('click',async () => {
-    const inputValue = searchInput.value;
+const arrowLeftInTopRated = document.getElementById("arrow-left-top-rated");
+if( window.innerWidth > 800 ) // for handle search with responsive screen
+{
+searchButton[0].addEventListener('click',async () => {
+    const inputValue = searchInput[0].value;
     localStorage.setItem("searchQuery",`${inputValue}`);
         // window.location.href = "./pages/search/search.html"
 });
+}
+else{
+    searchButton[1].addEventListener('click',async () => {
+        const inputValue = searchInput[1].value;
+        localStorage.setItem("searchQuery",`${inputValue}`);
+            // window.location.href = "./pages/search/search.html"
+    });
+}
 const img_URL = `https://image.tmdb.org/t/p/w500`;
 
 const options = {
@@ -167,7 +177,7 @@ async function getUpComingMovies(){
     let response = await fetch("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",options);
     upComingMovies = await response.json();
     dates = upComingMovies.dates
-    upComingMovies = await upComingMovies.results;  
+    upComingMovies = await upComingMovies.results;      
     showInSlider(upComingMovies)
     // displayOneMovie(upComingMovies[10]) // that's will change
     document.getElementById("Comming-soon").innerHTML = `Comming soon [ ${dates.minimum} ] to [ ${dates.maximum} ]`

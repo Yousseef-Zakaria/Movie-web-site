@@ -17,10 +17,19 @@ header h1{
     color: white;
 }
 @media only screen and (max-width: 680px) {
-    nav {
-        width: 100% !important;
-    }
     .hide{
+        display: none;
+    }
+    header{
+        padding: 1.5rem !important;
+    }
+    .rounded-5{
+        top: 5% !important;
+    }
+}
+@media only screen and (min-width: 800px) {
+    
+    .hide-large{
         display: none;
     }
 }

@@ -94,13 +94,13 @@ header nav a:hover{
         width: 0;
     }
     to {
-        width: 70%;
+        width: 78%;
     }
-  }
+}
 .welcome-page .big-text{
     font-size: 2.5rem;
     font-weight: 500;
-    width: 70%;
+    width: 78%;
     text-transform: uppercase;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     font-family: Arial, Helvetica, sans-serif;
