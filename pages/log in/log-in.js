@@ -5,7 +5,7 @@ continueButton.addEventListener("click",function () {
         localStorage.setItem("Email" , emailInput.value)
         localStorage.setItem("password" , passwordInput.value)
 })
-export const isLoged = () => {
+const isLoged = () => {
     return localStorage.getItem("Email") ? true : false;
 }
 const hideWhenLoged = document.getElementById("hide-if-log");

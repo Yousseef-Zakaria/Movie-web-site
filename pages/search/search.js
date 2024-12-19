@@ -37,7 +37,7 @@ function displayMovies(arr = [] , container = "" ) {
     document.getElementById("found-number").innerHTML = `Found (${arr.length})`
     arr.forEach(movie => {
         const item = document.createElement("div")
-        item.innerHTML = `<a href="/pages/movie-details/details.html">
+        item.innerHTML = `<a href="../movie-details/details.html">
         <img src="${img_URL+movie.poster_path}" class="card-img-top " style="width:16%;" alt="">
         </a>
         <span class=" rounded-5">${(movie.vote_average).toFixed(1)}</span>`;

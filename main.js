@@ -219,9 +219,16 @@ const swiper = new Swiper('.swiper', {
                         <div class="title ms-2">
                             <h3 class="fs-1">${movie.title}</h3>
                             <span class="fs-6">
-                                ${movie.overview}
+                                ${truncateToWords ( movie.overview , 20)}
                             </span>
                         </div>`;
             swiperContainer.appendChild(swiperItem)
         })
+    }
+    function truncateToWords(input, maxWords = 30) {
+        const words = input.split(/\s+/); // Split string into words by whitespace
+        if (words.length <= maxWords) {
+            return input; // Return original string if within word limit
+        }
+        return words.slice(0, maxWords).join(' ') + '...'; // Truncate and add ellipsis
     }
