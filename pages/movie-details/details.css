@@ -67,7 +67,9 @@ header nav a{
 header nav a:hover{
     border-bottom: #D4EBF8 0.1em solid;
 }
-
+.description{
+  background-color: rgba(0, 0, 0, 0.659);
+}
 /* CSS */
 .button-35 {
   align-items: center;
