@@ -45,66 +45,11 @@ async function getMoviesByAi() {
     const typeMood = document.getElementById("type-mood").value;
 
     document.getElementById("searched-container").innerHTML=`
-    <div class="card" style="width: 20%;" aria-hidden="true">
-            <img src="https://th.bing.com/th/id/OIP.JfSoCom_PMG2HWUDFwb28gHaEo?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="loading">
-            <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-6"></span>
-                </h5>
-                <p class="card-text placeholder-glow">
-                    <span class="placeholder col-7"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-6"></span>
-                    <span class="placeholder col-8"></span>
-                </p>
-            </div>
-        </div>
-    <div class="card" style="width: 20%;" aria-hidden="true">
-            <img src="https://th.bing.com/th/id/OIP.JfSoCom_PMG2HWUDFwb28gHaEo?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="loading">
-            <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-6"></span>
-                </h5>
-                <p class="card-text placeholder-glow">
-                    <span class="placeholder col-7"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-6"></span>
-                    <span class="placeholder col-8"></span>
-                </p>
-            </div>
-        </div>
-    <div class="card" style="width: 20%;" aria-hidden="true">
-            <img src="https://th.bing.com/th/id/OIP.JfSoCom_PMG2HWUDFwb28gHaEo?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="loading">
-            <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-6"></span>
-                </h5>
-                <p class="card-text placeholder-glow">
-                    <span class="placeholder col-7"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-6"></span>
-                    <span class="placeholder col-8"></span>
-                </p>
-            </div>
-        </div>
-        <div class="card" style="width: 20%;" aria-hidden="true">
-            <img src="https://th.bing.com/th/id/OIP.JfSoCom_PMG2HWUDFwb28gHaEo?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="loading">
-            <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-6"></span>
-                </h5>
-                <p class="card-text placeholder-glow">
-                    <span class="placeholder col-7"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-4"></span>
-                    <span class="placeholder col-6"></span>
-                    <span class="placeholder col-8"></span>
-                </p>
-            </div>
-        </div>
+    <span class="loader"></span>
+    <span class="loader"></span>
+    <span class="loader"></span>
+    <span class="loader"></span>
+    <span class="loader"></span>
     ` // loading here 
     if (mood == "select your mood" && typeMood) {
         mood = typeMood;
