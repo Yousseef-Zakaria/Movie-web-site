@@ -76,12 +76,11 @@ arrowLeft.addEventListener("click",()=>{
 async function getTrendingMovies()
 {    
     if (arr.length === 0) {
-        // جلب البيانات إذا لم يتم جلبها مسبقًا
         let response = await fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options);
         arr = await response.json();        
-        intervalOfOrder = arr.results.length; // تعيين العدد الإجمالي للعناصر
+        intervalOfOrder = arr.results.length; // number of movies 
     }
-    displayMovies(arr.results , "products-container",0,6,"trending-movie");
+    displayMovies(arr.results , "products-container",0,6,"trending-movie"); // function that show movies in HTML
 }
 getTrendingMovies();
 // show details 
